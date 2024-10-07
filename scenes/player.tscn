@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhqalj4x65coj"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ahqli"]
+[ext_resource type="Texture2D" uid="uid://csduyw1pt2wi1" path="res://assets/tanks_turret2.png" id="2_imn2i"]
+[ext_resource type="PackedScene" uid="uid://tbxp3obvy51l" path="res://scenes/projectile.tscn" id="2_mrd4j"]
+[ext_resource type="Texture2D" uid="uid://dq72w7xpkg5n1" path="res://assets/tanks_tankGreen_body3.png" id="3_ft68q"]
+
+[node name="Player" type="Node2D"]
+position = Vector2(355, 339)
+script = ExtResource("1_ahqli")
+projectile = ExtResource("2_mrd4j")
+rotate_speed = 200
+speedbar_speed = 100
+
+[node name="Turret Control" type="Node2D" parent="."]
+position = Vector2(0, -22)
+rotation = -0.785398
+
+[node name="Turret" type="Sprite2D" parent="Turret Control"]
+position = Vector2(24, 0)
+texture = ExtResource("2_imn2i")
+
+[node name="Spawnpoint" type="Node2D" parent="Turret Control"]
+position = Vector2(46, 0.00016652)
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("3_ft68q")
+
+[node name="Speedbar" type="ProgressBar" parent="."]
+offset_left = -68.0
+offset_top = 24.0
+offset_right = 67.0
+offset_bottom = 51.0
+value = 25.0
